@@ -1,0 +1,159 @@
+@keyframes logoanimation {
+  from {
+    width: 25px; /* Start of the animation: element is set to have a width of 25px and be fully transparent (invisible). */
+    opacity: 0;
+  }
+  to {
+    width: 475px; /* End of the animation: element reaches a width of 475px and becomes fully opaque (visible). */
+    opacity: 1;
+  }
+}
+
+/* Targets the element with the ID 'logo' and applies the defined keyframe animation to it over a period of 5 seconds. The 'forwards' value ensures that the element will retain the style set by the last keyframe when the animation finishes. */
+#logo {
+  animation: logoanimation 5s forwards;
+}
+
+body {
+  font-family: 'Poppins', serif; /* Sets Poppins font with a serif fallback. */
+  background-image: url("../images/concrete_seamless.png"); /* Adds a background image. */
+  background-attachment: fixed;
+  background-color: #f1f1f1; /* A light grey background color as fallback if the image is not available. */
+  background-size: cover; /* The background image will cover the entire element. */
+  background-repeat: no-repeat;
+}
+
+header {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: space-between; /* Spaces out the flex items. */
+}
+
+.nav_links {
+  display: flex;
+  flex-direction: column;
+  list-style: none; /* Removes default list styling. */
+  align-items: center;
+}
+
+.nav_links a {
+  color: #0000ff; /* Sets link color. */
+}
+    
+.nav_links a:visited {
+  color: #0000ff; /* Set the visited link color. */
+}
+
+.card > header {
+  background: #288088; /* Set background color. */
+  border: 2px solid #45ADAD; /* Set a lighter border color. */
+  padding: 20px 0;
+  border-radius: 50px 50px 0 0; /* Rounded corners at the top. */
+  align-items: flex-start；
+}
+
+.card {
+  flex: 0 1 450px; /* flex-basis: 450px, flex-shrink: 1 */
+  flex-direction: row; /* Aligns card content horizontally. */
+  border-radius: 50px 50px 0 0; /* Rounded corners at the top. */
+}
+
+.pricing {
+  display: flex; 
+  align-items: center; /* Centers items vertically. */
+  justify-content: center; /* Centers items horizontally. */
+  flex-direction: row; /* Aligns items in a row. */
+  flex-wrap: wrap; /* Allows items to wrap onto multiple lines. */
+}
+
+.gallery img {
+  border: 10px solid #50C7C7; /* Sets a solid border with color. */
+  margin: 10px; /* Adds margins around each image. */
+  width: 300px; /* Sets a fixed width for images. */
+  height: auto;
+  flex: 0 1 auto; /* The image can shrink, and is sized according to its width and height. */
+}
+    
+.gallery {
+  display: flex;
+  flex-direction: row; /* Aligns gallery items horizontally. */
+  flex-wrap: wrap; /* Allows items to wrap onto multiple lines. */
+  align-items: stretch; /* Stretches items to fill the container. */
+  justify-content: center; /* Centers items in the container. */
+}
+
+@media screen and (min-width: 900px) {
+  header:not(main header) {
+    display: flex;
+    flex-direction: row; /* Aligns header items horizontally. */
+    position: sticky; /* Makes the header always the top of the viewport even if scroll down. */
+    align-items: center; /* Centers items vertically. */
+    justify-content: space-between; /* Spaces out items evenly. */
+    top: 0; /* Positions the header at the very top. */
+    z-index: 1000; /* Ensures the header is above other elements. */
+  }
+
+  .nav_links {
+    display: flex;
+    flex-direction: row; /* Makes navigation links horizontal. */
+  }
+
+  .pricing {
+    display: flex; 
+    align-items: center; /* Centers items vertically. */
+    justify-content: center; /* Centers items horizontally. */
+    flex-direction: row; /* Aligns items in a row. */
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines. */
+  }
+  
+  .card {
+    flex: 0 1 275px; /* Changes the base size of the card for larger screens. */
+  }
+
+  .card h3 {
+    text-align: left; /* Should aligns the h3 text to the left, but it doesn't work */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #logo {
+    animation: none; /* No animation applied. */
+  }
+}
+
+@media print {
+  body {
+    font-family: Arial, Helvetica, sans-serif; /* Changes the font family for printing. */
+    background-image: none; /* Removes the background image for printing. */
+  }
+    
+  nav, .nav_links {
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: row;
+    width: 100%; /* Sets the navigation width to the full container width. */
+    justify-content: space-evenly; /* Evenly spaces navigation links. */
+  }
+  
+  .pricing {
+    display: flex;
+    justify-content: space-around; /* Distributes space around pricing items. */
+    align-items: flex-end; /* Aligns pricing items at the end of the container (bottom). */
+    flex-wrap: nowrap; /* Prevents pricing items from wrapping. */
+  }
+  
+  .card {
+    border: 2px solid #45addd; /* Changes the solid border color for printing. */
+    flex-basis: 325px; /* Sets the flex basis of the card for printing. */
+  }
+  
+  .gallery {
+    display: none; /* Hides the gallery section when printing. */
+  }
+  
+  .card ul li:nth-child(2)::after {
+    content: " 👍"; /* Add a space before the emoji to separate it from the text */
+    /* Adds a thumbs-up emoji after the second list item in a card. */
+  }
+}
