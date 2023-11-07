@@ -25,7 +25,7 @@ body {
 
 header {
   display: flex;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between; /* Spaces out the flex items. */
 }
@@ -50,7 +50,7 @@ header {
   border: 2px solid #45ADAD; /* Set a lighter border color. */
   padding: 20px 0;
   border-radius: 50px 50px 0 0; /* Rounded corners at the top. */
-  align-items: flex-start；
+  align-items: flex-start;
 }
 
 .card {
@@ -90,7 +90,7 @@ header {
     display: flex;
     flex-direction: row; /* Aligns header items horizontally. */
     position: sticky; /* Makes the header always the top of the viewport even if scroll down. */
-    align-items: center; /* Centers items vertically. */
+    
     justify-content: space-between; /* Spaces out items evenly. */
     top: 0; /* Positions the header at the very top. */
     z-index: 1000; /* Ensures the header is above other elements. */
